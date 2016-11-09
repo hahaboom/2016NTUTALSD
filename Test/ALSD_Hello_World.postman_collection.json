@@ -1,0 +1,49 @@
+{
+	"id": "b42152aa-c048-bd4d-3e35-173af2421477",
+	"name": "ALSD",
+	"description": "",
+	"order": [
+		"7ce91f87-6c61-c0f3-37e1-440ae8d01506"
+	],
+	"folders": [],
+	"timestamp": 1478573840134,
+	"owner": "547001",
+	"public": false,
+	"published": false,
+	"hasRequests": true,
+	"requests": [
+		{
+			"id": "7ce91f87-6c61-c0f3-37e1-440ae8d01506",
+			"headers": "Authorization: b99a6d115e424727b6c2cfc5a5ea514b\n",
+			"url": "140.124.183.89:8787",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "b42152aa-c048-bd4d-3e35-173af2421477",
+			"data": [
+				{
+					"key": "account",
+					"value": "account@gmail.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "password2",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "140.124.183.89:8787",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1478573852190,
+			"version": 2,
+			"responses": [],
+			"tests": "tests[\"Hello World\"] = responseBody.has(\"Hello World!\")",
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		}
+	]
+}
