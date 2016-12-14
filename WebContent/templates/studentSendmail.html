@@ -1,0 +1,83 @@
+<div class="example">
+	<div class="page-content">
+        <div class="top-nav">
+            <a class="nav" ng-click="goCourseManage()">課程管理</a>
+            <span class="glyphicon glyphicon-menu-right"></span>
+            <a class="nav" ng-click="goStudentManage()">{{currentCourse.courseName_}} - {{currentCourse.batch_}}</a>
+            <span class="glyphicon glyphicon-menu-right"></span>
+            <span>寄送證書</span>
+        </div>
+		<div class="inner-wrapper">
+			<div class="content">
+				<loading ng-show="isCertificationLoading"></loading>
+				<div class="info" ng-show="!isCertificationLoading">					
+					<div class="title">寄送證書</div>
+						<!-- <div class="alert alert alert-success alert-dismissible" role="alert" style="display:none" id="sendMailSuccess">
+						  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						  <strong>寄送成功!</strong>
+						</div>	
+						<div class="alert alert alert-warning alert-dismissible" role="alert" style="display:none" id="sendMailWarning">
+						  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						  <strong>已寄送過了!</strong>
+						</div> -->
+						<div id = "sendMailAlert"></div>
+						<div class="row">
+							<div class="col-md-6">
+								<p class="lead">課程: {{courseName}}</p>
+							</div>
+
+							<div class="col-md-6">
+								<p class="lead">學員: {{studentName}}</p>
+							</div>
+							
+							<div class="col-md-6">
+								<p class="lead">課程日期: {{date}}</p>
+							</div>
+
+							<div class="col-md-6">
+								<p class="lead">證書編號: {{studentId}}</p>
+							</div>
+							<br>
+
+							<div class="col-md-6">
+								<p class="lead">課程時數: {{couresDuration}}</p>
+							</div>
+							
+							<div class="col-md-6">
+								<p class="lead">信箱: {{address}}</p>
+							</div>
+	
+						</div>
+
+						<div class="row">
+							<div class="col-md-6">
+								<img style="display: block; margin: auto" id="certificationImg" width="100%"></img>
+							</div>
+
+						<div class="col-md-6">
+							<textarea cols="80" id="editor1" name="editor1" rows="10">
+			
+				  
+				  			</textarea>
+
+						</div>
+						<br><br>
+
+					</div>
+					<br><br> 	
+		
+					<div class="row">
+						<div class="col-md-6">
+					    	<input class="btn btn-info btn-orange" type="button" value="<上一封" id="previous" ng-click="ClickPreviousButton()" disabled="disabled">
+					    	<input class="btn btn-info btn-orange" type="button" value="下一封>" id="next" ng-click="ClickNextButton()" disabled="disabled">
+					    	
+					    </div>
+					    <div class="col-md-6 text-right">
+					    	<input class="btn btn-info btn-orange btn-block" type="button" value="寄送此信(含附件證書)" id="send" ng-click="Send()"> 
+					    </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

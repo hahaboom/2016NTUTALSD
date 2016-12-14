@@ -1,0 +1,53 @@
+<div id="navigator">
+    <div class="action-list">
+        <!-- <div class="action-item" ui-sref="home" ng-class="{'active': isHomeView()}">
+            <div class="item-title">
+                <i class="icon-home-outline"></i>
+                <span>首頁</span>
+            </div>
+        </div> -->
+
+        <div class="action-item" ng-class="{'active': isCourseInfoView(), 'show-menu': isShowCourseMenu}">
+            <div class="item-title" ng-click="toggleCourseMenu()">
+                <i class="glyphicon glyphicon-book"></i>
+                <span>課程功能</span>
+                <span class="glyphicon glyphicon-menu-right icon"></span>
+            </div>
+            <div class="item-menu">
+                <ul class="menu-list">
+                    <li class="menu-item" ui-sref="courseInfo.manage" ng-class="{'active': isCourseInfoManageView()}">課程管理</li>
+                    <li class="menu-item" ui-sref="courseInfo.create" ng-class="{'active': isCourseInfoCreateView()}">開新課程</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- <div class="action-item" ng-class="{'active': isStudentInfoView(), 'show-menu': isShowStudentMenu}">
+            <div class="item-title" ng-click="toggleStudentMenu()">
+                <i class="icon-users-outline"></i>
+                <span>學員管理</span>
+                <span class="glyphicon glyphicon-menu-right icon"></span>
+            </div>
+            <div class="item-menu">
+                <ul class="menu-list">
+                    <li class="menu-item" ui-sref="studentInfo.Manage" ng-class="{'active': isStudentInfoManageView()}">課程學員</li>
+                    <li class="menu-item" ui-sref="studentInfo.Import" ng-class="{'active': isStudentInfoImportView()}">學員資料上傳</li>
+                </ul>
+            </div>
+        </div> -->
+
+        <div class="action-item" ng-class="{'active': isOthersView(), 'show-menu': isShowOthersMenu}">
+            <div class="item-title" ng-click="toggleOthersMenu()">
+                <i class="glyphicon glyphicon-cog"></i>
+                <span>其他功能</span>
+                <span class="glyphicon glyphicon-menu-right icon"></span>
+            </div>
+            <div class="item-menu">
+                <ul class="menu-list">
+                    <li class="menu-item" ui-sref="others.certification" ng-class="{'active': isOthersCertificationView()}">產生證書</li>
+                    <li class="menu-item" ui-sref="others.sendMail" ng-class="{'active': isOthersSendMailView()}">寄送郵件</li>
+                    <li class="menu-item" ui-sref="others.invoice" ng-class="{'active': isOthersInvoiceView()}">發票開立</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

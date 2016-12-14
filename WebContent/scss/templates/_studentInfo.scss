@@ -1,0 +1,359 @@
+.studentinfo {
+    background-color: #E9E9E9;
+    padding-top: 40px;
+    min-height: 100%;
+    height: 100%;
+    width: 100%;
+    .inner-wrapper {
+        position: relative;
+        width: 100%;
+        .import {
+            padding: 25px 40px;
+            height: calc(100vh - 150px);
+            background-color: #FFF;
+            @include border-radius(3px);
+            @include box-shadow(0px 1px 3px 0px rgba(0, 0, 0, 0.1));
+            .title {
+                margin-bottom: 20px;
+                height: 57px;
+                font-size: 30px;
+                color: #333;
+                border-bottom: 1px solid #ccc;
+                text-align: center;
+            }
+            .si-control-group {
+                @include display-flex(flex);
+                height: 35px;
+                .class-dropdown {
+                    position: relative;
+                    margin-right: 20px;
+                    .spin-style {
+                        display: inline-block;
+                        margin-right: 10px;
+                    }
+                    .btn-default {
+                        position: relative;
+                        max-width: 280px;
+                        padding-right: 20px;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        .caret {
+                            position: absolute;
+                            top: 50%;
+                            right: 10px;
+                            @include transform(translateY(-50%));
+                        }
+                    }
+                }
+                .si-upload {
+                    width: calc(100% - 556px);
+                    margin-right: 20px;
+                    border: 1px solid #ccc;
+                    cursor: pointer;
+                    @include border-radius(3px);
+                    &.is-empty {
+                        border: 1px solid #F14342;
+                    }
+                    .upload-title {
+                        width: 80px;
+                        height: 34px;
+                        text-align: center;
+                        line-height: 34px;
+                        background-image: linear-gradient(to bottom, #ffb489 0%, #ff7323 100%);
+                        display: inline-block;
+                        @include border-radius(3px 0 0 3px);
+                        font-size: 14px;
+                        color: #FFF;
+                    }
+                    .upload-name {
+                        display: inline-block;
+                        width: calc(100% - 100px);
+                        height: 34px;
+                        line-height: 34px;
+                        overflow: hidden;
+                        vertical-align: top;
+                        margin-left: 5px;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        font-size: 14px;
+                    }
+                }
+                .si-control {
+                    width: 300px;
+                    .form-control {
+                        height: 36px;
+                    }
+                }
+                .result-container {
+                    display: none;
+                    width: 100px;
+                    margin-left: 20px;
+                    .label {
+                        height: 24px;
+                        line-height: 24px;
+                        padding: 0 10px;
+                        margin: auto 10px;
+                    }
+                    .spin-style {
+                        margin: auto;
+                    }
+                    &.show-result {
+                        @include display-flex(flex);
+                    }
+                }
+            }
+            .result-content {
+                position: relative;
+                height: calc(100% - 60px);
+                overflow: hidden;
+                margin-top: 20px;
+                .load-layout {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    background-color: rgba(#000, 0.7);
+                    z-index: 2;
+                    .load-block {
+                        text-align: center;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        @include transform(translate(-50%, -50%));
+                        .layout-title {
+                            font-size: 20px;
+                            color: #FFF;
+                            .spin-style {
+                                display: inline-block;
+                            }
+                        }
+                    }
+                }
+                .si-div {
+                    display: none;
+                    position: relative;
+                    width: 100%;
+                    max-height: 100%;
+                    overflow: hidden;
+                    table {
+                        tr {
+                            th {
+                                background-color: rgba(#FF5D01, 0.8);
+                                color: #FFF;
+                            }
+                        }
+                    }
+                    &.show {
+                        display: block;
+                        border: 2px solid #ccc;
+                        border-top: none;
+                    }
+                }
+            }
+        }
+        .manage {
+            .fix-content {
+                position: fixed;
+                top: 70px;
+                height: 102px;
+                padding-top: 25px;
+                margin-left: -1px;
+                width: 1263px;
+                background-color: #E9E9E9;
+                z-index: 99;
+                .top-nav {
+                    height: 22px;
+                    line-height: 22px;
+                    margin-bottom: 4px;
+                    font-size: 16px;
+                    color: #333;
+                    .nav {
+                        display: inline-block;
+                        cursor: pointer;
+                    }
+                    .glyphicon {
+                        margin: 0 5px;
+                        height: 22px;
+                        line-height: 22px;
+                        font-size: 12px;
+                    }
+                }
+                .manage-topbar {
+                    padding: 0 20px;
+                    height: 50px;
+                    line-height: 50px;
+                    background-color: #FFF;
+                    @include box-shadow(0px 1px 3px 0px rgba(0, 0, 0, 0.1));
+                    @include border-radius(3px);
+                    .btn-group {
+                        .btn {
+                            height: 35px;
+                            line-height: 35px;
+                            padding: 0 10px;
+                            .select-block {
+                                @include display-flex(flex);
+                                width: 16px;
+                                height: 16px;
+                                margin: 2px;
+                                border: 1px solid #333;
+                                @include border-radius(3px);
+                                span {
+                                    font-size: 12px;
+                                }
+                            }
+                        }
+                    }
+                    .select-info {
+                        display: inline-block;
+                        margin-left: 10px;
+                        height: 50px;
+                        line-height: 50px;
+
+                    }
+                    .student-search {
+                        @include display-flex(inline-flex);
+                        height: 50px;
+                        width: 280px;
+                        vertical-align: top;
+                        float: right;
+                        .input-group {
+                            margin: auto;
+                            input {
+                                height: 35px;
+                                line-height: 35px;
+                                padding: 0 10px;
+                            }
+                        }
+                    }
+                }
+            }
+                
+            .loader {
+                margin-top: 75px;
+            }
+            .manage-content {
+                margin-top: 80px;
+                .manage-title {
+                    height: 60px;
+                    line-height: 60px;
+                    padding: 0 24px;
+                    font-size: 16px;
+                    color: #FFF;
+                    background-color: #FF8400;
+                    @include border-radius(3px 3px 0 0);
+                }
+                .student-content, .course-content {
+                    background-color: #FFF;
+                    @include box-shadow(0px 1px 3px 0px rgba(0, 0, 0, 0.1));
+                    @include border-radius(3px);
+                    .content-title {
+                        position: relative;
+                        height: 50px;
+                        line-height: 50px;
+                        background-color: #ff8f4f;
+                        color: #FFF;
+                        font-size: 20px;
+                        text-align: center;
+                        font-weight: bold;
+                        cursor: pointer;
+                        @include border-radius(3px 3px 0 0);
+                        
+                    }
+                }
+                .course-content {
+                    margin-bottom: 20px;
+                    .content-title {
+                        // background-color: #FFF;
+                        // color: #333;
+                        // border: 1px solid #ddd;
+                        // font-weight: normal;
+                        .glyphicon {
+                            top: 0;
+                            font-size: 12px;
+                            margin-left: 10px;
+                        }
+                        .btn-group {
+                            position: absolute;
+                            top: 50%;
+                            right: 20px;
+                            @include transform(translateY(-50%));
+                            .spin-style {
+                                display: inline-block;
+                            }
+                        }
+                    }
+                    &.open-level {
+                        .content-title {
+                            .glyphicon {
+                                @include transform(rotate(90deg));
+                            }
+                        }
+                        .content-info {
+                            @include display-flex(flex);
+                        }
+                    }
+                    .content-info {
+                        display: none;
+                        padding: 10px 0;
+                        .left, .right {
+                            display: inline-block;
+                            @include flex(1);
+                            margin: 0 20px;
+                            .form-group {
+                                line-height: 35px;
+                                margin-bottom: 0;
+                                vertical-align: top;
+                                label {
+                                    vertical-align: top;
+                                    font-size: 16px;
+                                    font-weight: bold;
+                                }
+                                a {
+                                    cursor: pointer;
+                                }
+                                b {
+                                    color: #F14342;
+                                    font-weight: bold;
+                                }
+                            }
+                        }
+                    }
+                }
+                .student-content {
+                    table {
+                        thead {
+                            tr {
+                                th {
+                                    height: 50px;
+                                    line-height: 40px;
+                                    padding: 0;
+                                    text-align: left;
+                                }
+                            }
+                        }
+                        tbody {
+                            tr {
+                                td {
+                                    position: relative;
+                                    height: 50px;
+                                    line-height: 50px;
+                                    padding: 0;
+                                    font-size: 14px;
+                                    text-align: left;
+                                    &.empty {
+                                        text-align: center;
+                                    }
+                                }
+                                &.selected {
+                                    background-color: #D1E1FD;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,140 @@
+<div class="course-info">
+    <div class="inner-wrapper">
+        <div class="manage">
+            <div class="manage-topbar">
+                <div class="topbar-search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="梯次搜尋" ng-model="searchKey.batch" ng-change="isBatchSearchChange()">
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="topbar-search button">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span ng-show="searchKey.status == ''">狀態過濾</span>
+                            <span ng-show="searchKey.status != ''">{{searchKey.status}}</span> 
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a ng-click="changeStatusFilter('準備中')">準備中</a></li>
+                            <li><a ng-click="changeStatusFilter('報名中')">報名中</a></li>
+                            <li><a ng-click="changeStatusFilter('取消')">取消</a></li>
+                            <li><a ng-click="changeStatusFilter('確定開課')">確定開課</a></li>
+                            <li><a ng-click="changeStatusFilter('停止報名')">停止報名</a></li>
+                            <li><a ng-click="changeStatusFilter('上課中')">上課中</a></li>
+                            <li><a ng-click="changeStatusFilter('課程結束')">課程結束</a></li>
+                            <li><a ng-click="changeStatusFilter('')">取消過濾</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <loading ng-show="isCourseLoading"></loading>
+            <div class="content-wrapper" ng-show="!isCourseLoading">
+                <div class="manage-content" ng-class="{'open-level': topCourseList.isOpen}" ng-show="topCourseList.isShow">
+                    <div class="content-title" ng-click="openGroupLevel(topCourseList)">
+                        <span>近期課程 TOP5</span>
+                        <span class="glyphicon glyphicon-menu-right"></span>
+                    </div>
+                    <div class="table-content new">
+                        <table class="table table-hover" border="1" cellpadding="9">
+                            <thead>
+                                <th style="width: 24%;">課名</th>
+                                <th style="width: 14%;">梯次</th>
+                                <th style="width: 30%;">上課日期</th>
+                                <th style="width: 10%;">人數</th>
+                                <th style="width: 12%;">狀態</th>
+                                <th style="width: 10%;">功能</th>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="course in topCourseList.courseList track by $index">
+                                    <td class="course" ng-click="goStudentManage(course.courseId_)"><a>{{course.courseName_}}</a></td>
+                                    <td class="batch">{{course.batch_}}</td>
+                                    <td class="date">
+                                        <span ng-repeat="d in course.dates_ track by $index">
+                                            {{d}}
+                                            <b ng-if="$index != course.dates_.length - 1">、</b>
+                                        </span>
+                                    </td>
+                                    <td>{{course.studentNum_}} 人</td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <span>{{course.status_}}</span> 
+                                                <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a ng-click="changeCourseStatus('準備中', course)">準備中</a></li>
+                                                <li><a ng-click="changeCourseStatus('報名中', course)">報名中</a></li>
+                                                <li><a ng-click="changeCourseStatus('取消', course)">取消</a></li>
+                                                <li><a ng-click="changeCourseStatus('確定開課', course)">確定開課</a></li>
+                                                <li><a ng-click="changeCourseStatus('停止報名', course)">停止報名</a></li>
+                                                <li><a ng-click="changeCourseStatus('上課中', course)">上課中</a></li>
+                                                <li><a ng-click="changeCourseStatus('課程結束', course)">課程結束</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <input type="submit" class="btn btn-info btn-orange" value="刪除" ng-click="deleteRow(course.courseId_)">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="manage-content" ng-repeat="group in courseGroupList" ng-class="{'open-level': group.isOpen}" ng-show="isCourseGroupShow(group)">
+                    <div class="content-title" ng-click="openGroupLevel(group)">
+                        <span>{{group.name}}</span>
+                        <span class="glyphicon glyphicon-menu-right"></span>
+                    </div>
+                    <div class="table-content">
+                        <table class="table table-hover" border="1" cellpadding="9">
+                            <thead>
+                                <th style="width: 34%;">梯次</th>
+                                <th style="width: 34%;">上課日期</th>
+                                <th style="width: 10%;">人數</th>
+                                <th style="width: 12%;">狀態</th>
+                                <th style="width: 10%;">功能</th>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="course in group.courseList track by $index" ng-show="isCourseShow(course)">
+                                    <!-- <td>{{course.courseName_}}</td> -->
+                                    <td class="batch" ng-click="goStudentManage(course.courseId_)"><a>{{course.batch_}}</a></td>
+                                    <td class="date">
+                                        <span ng-repeat="d in course.dates_ track by $index">
+                                            {{d}}
+                                            <b ng-if="$index != course.dates_.length - 1">、</b>
+                                        </span>
+                                    </td>
+                                    <td>{{course.studentNum_}} 人</td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <span>{{course.status_}}</span> 
+                                                <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a ng-click="changeCourseStatus('準備中', course)">準備中</a></li>
+                                                <li><a ng-click="changeCourseStatus('報名中', course)">報名中</a></li>
+                                                <li><a ng-click="changeCourseStatus('取消', course)">取消</a></li>
+                                                <li><a ng-click="changeCourseStatus('確定開課', course)">確定開課</a></li>
+                                                <li><a ng-click="changeCourseStatus('停止報名', course)">停止報名</a></li>
+                                                <li><a ng-click="changeCourseStatus('上課中', course)">上課中</a></li>
+                                                <li><a ng-click="changeCourseStatus('課程結束', course)">課程結束</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <input type="submit" class="btn btn-info btn-orange" value="刪除" ng-click="deleteRow(course.courseId_)">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="empty-content" ng-show="isGroupEmpty()">無搜尋結果</div>
+        </div>
+    </div>
+</div>

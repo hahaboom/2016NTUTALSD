@@ -1,0 +1,35 @@
+<div class="example">
+    <div class="page-content">
+        <div class="inner-wrapper">
+            <div class="content">
+                <div class="info">
+                    <div class="title">寄送郵件</div>
+                    <form name="myForm" class="form-group">
+                        <div class="form-group name">
+                            <label for="companyName">課程名稱：</label>
+                        </div>
+                        <select size=5 class="form-control" ng-model="selectedValue1" ng-change="updateStudentCheckList()" id="courseCheckbox"> </select>
+                        <hr>
+                        <div class="form-group name">
+                            <label for="companyName">學員姓名:</label>
+                        </div>
+                        <div id="studentName" class="form-control" style="width:900px;height:200px;overflow-x:hidden;overflow-y:auto;background-color:white;"></div>
+                    </form>
+                    <div class="form-group name">
+                        <label for="companyName">副本寄送:</label>
+                    </div>
+                    <div id="carbonCopyName" class="form-control" style="height:80px;"></div>
+                    <hr>
+                    <div class="form-group">
+                        <FORM ACTION="#" NAME=temp>
+                            <TEXTAREA class="form-control" NAME=previewBox COLS=70 ROWS=10 DISABLED>請選取課程</TEXTAREA>
+                            <select class="form-control" name="member" size=6 ng-model="selectedValue2" ng-change="updateMailContent()" id="inpRec_Name"></select>
+                        </FORM>
+                    </div>
+                    <input class="btn btn-info btn-orange" type="submit" value="產生" id="preview_submit" name="form_submit" ng-click="generatePreviewMail()" disabled="disabled">
+                    <input class="btn btn-info btn-orange" type="submit" value="發信" id="send_submit" name="form_submit" ng-click="clickSendMailButton()" disabled="disabled">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

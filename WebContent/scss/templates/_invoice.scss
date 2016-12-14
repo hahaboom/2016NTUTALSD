@@ -1,0 +1,259 @@
+.invoice-page {
+    background-color: #E9E9E9;
+    padding: 40px 0;
+    min-height: 100%;
+    height: 100%;
+    width: 100%;
+    .inner-wrapper {
+        position: relative;
+        width: 100%;
+        @include border-radius(3px);
+        background-color: #FFF;
+        @include box-shadow(0px 1px 3px 0px rgba(0, 0, 0, 0.1));
+        .invoice-content {
+            padding: 25px 40px;
+            .invoice-topbar {
+                position: relative;
+                height: 40px;
+                width: 100%;
+                border-bottom: 2px solid #eee;
+                .topbar-item {
+                    display: inline-block;
+                    padding: 0 6px;
+                    width: 100px;
+                    height: 40px;
+                    line-height: 40px;
+                    font-size: 14px;
+                    color: #666;
+                    cursor: pointer;
+                }
+                .date-info {
+                    display: inline-block;
+                    padding: 0 6px;
+                    height: 40px;
+                    line-height: 50px;
+                    font-size: 14px;
+                    color: #ff6812;
+                    float: right;
+                }
+                .switcher {
+                    position: absolute;
+                    top: 38px;
+                    left: 0;
+                    height: 2px;
+                    width: 100px;
+                    background-color: #ef5700;
+                    @include transition(all ease-in-out 150ms);
+                    &.right {
+                        @include transition(all ease-in-out 150ms);
+                        @include transform(translateX(100%));
+                    }
+                    &.left {
+                        @include transition(all ease-in-out 150ms);
+                        @include transform(translateX(0));
+                    }
+                }
+            }
+            .invoice-info {
+                .invoice {
+                    padding: 20px 0;
+                    .invoice-input {
+                        .input-content {
+                            margin-bottom: 20px;
+                            .input-title {
+                                width: 100%;
+                                height: 30px;
+                                line-height: 30px;
+                                margin-bottom: 20px;
+                                font-size: 20px;
+                                color: #333;
+                                border-bottom: 1px solid #ccc;
+                            }
+                            .input-wrapper {
+                                .form-group {
+                                    display: inline-block;
+                                    margin-right: 15px;
+                                    label {
+                                        font-size: 14px;
+                                        margin-bottom: 6px;
+                                        font-weight: bold;
+                                    }
+                                }
+                                &.company {
+                                    .form-group {
+                                        &.id, &.date {
+                                            width: 200px;
+                                        }
+                                        &.name{
+                                            width: calc(100% - 400px - 40px);
+                                        }
+                                        &.date {
+                                            vertical-align: top;
+                                            margin-right: 0;
+                                        }
+                                    }
+                                }
+                                &.dollar {
+                                    .form-group {
+                                        width: 22%;
+                                        vertical-align: top;
+                                        &:last-child {
+                                            width: calc(34% - 60px);
+                                            margin-right: 0;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .action {
+                            text-align: center;
+                            .btn-info {
+                                width: 150px;
+                                margin-right: 15px;
+                            }
+                        }
+                    }
+                    .invoice-result {
+                        height: 0;
+                        visibility: hidden; 
+                        opacity: 0; 
+                        border-top: 1px solid #eee;
+                        text-align: center;
+                        @include transition(all ease-in-out 150ms);
+                        &.result-show {
+                            height: 586px;
+                            margin-top: 20px;
+                            visibility: visible;
+                            opacity: 1;
+                            @include transition(all ease-in-out 150ms);
+                            .result-wrapper {
+                                display: block;
+                            }
+                        }
+                        .result-wrapper {
+                            display: none;
+                            width: 800px;
+                            height: 550px;
+                            padding: 10px 30px;
+                            margin: 35px auto 0;
+                            text-align: center;
+                            border: 2px dashed #ccc;
+                            .invoice-title {
+                                font-size: 20px;
+                                height: 24px;
+                                line-height: 24px;
+                                margin-bottom: 8px;
+                                color: #aaa;
+                                span {
+                                    margin: 0 10px;
+                                }
+                            }
+                            .invoice-desc {
+                                color: #aaa;
+                                font-size: 16px;
+                                margin-bottom: 8px;
+                            }
+                            .invoice-date {
+                                display: inline-block;
+                                height: 28px;
+                                line-height: 28px;
+                                vertical-align: top;
+                                span {
+                                    color: #333;
+                                    font-size: 24px;
+                                }
+                            }
+                            .result-content {
+                                text-align: left;
+                                font-size: 14px;
+                                color: #aaa;
+                                .invoice-buyer {
+                                    margin-bottom: 8px;
+                                    height: 28px;
+                                    line-height: 28px;
+                                    span {
+                                        color: #333;
+                                        font-size: 24px;
+                                        line-height: 24px;
+                                    }
+                                }
+                                .invoice-meta {
+                                    margin-bottom: 15px;
+                                    .invoice-companyid {
+                                        display: inline-block;
+                                        margin-right: 15px;
+                                        span {
+                                            height: 24px;
+                                            line-height: 28px;
+                                        }
+                                        .id-item {
+                                            width: 28px;
+                                            height: 28px;
+                                            display: inline-block;
+                                            border: 1px solid #ccc;
+                                            border-right: none;
+                                            text-align: center;
+                                            line-height: 28px;
+                                            vertical-align: top;
+                                            font-size: 24px;
+                                            color: #333;
+                                            &:last-child {
+                                                border-right: 1px solid #ccc;
+                                            }
+                                        }
+                                    }
+                                }
+                                .invoice-table {
+                                    height: 200px;  
+                                    thead {
+                                        tr {
+                                            th {
+                                                border: 1px solid #C38293;
+                                                font-size: 16px;
+                                                padding: 4px 8px;
+                                            }
+                                        }
+                                    }
+                                    tbody {
+                                        tr {
+                                            td {
+                                                height: 40px;
+                                                line-height: 40px;
+                                                border: 1px solid #C38293;
+                                                padding: 0 8px;
+                                                font-size: 16px;
+                                                &.td-answer {
+                                                    color: #333;
+                                                    font-size: 24px;
+                                                }
+                                                &.td-word {
+                                                    text-align: right;
+                                                    font-size: 24px;
+                                                    .word-item {
+                                                        display: inline-block;
+                                                        width: 60px;
+                                                        margin-left: 5px;
+                                                        .word {
+                                                            display: inline-block;
+                                                            margin-right: 5px;
+                                                            text-align: center;
+                                                            color: #333;
+                                                        }
+                                                        .unit {
+                                                            line-height: 20px;
+                                                            font-size: 16px;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
