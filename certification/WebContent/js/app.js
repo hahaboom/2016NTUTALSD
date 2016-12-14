@@ -32,109 +32,43 @@ var app = angular.module('app', [
         $sceProvider.enabled(false);
 
         // Start Page
-        $urlRouterProvider.otherwise("/others/certification");
+        $urlRouterProvider.otherwise("/");
 
         $stickyStateProvider.enableDebug(false);
 
         // ui view setting
         $stateProvider
+        
+        .state(STATES.HOME, {
+          url: "/",
+          views: {
+              'home': {
+            	  templateUrl: "templates/certificationPage.html",
+                  controller: 'CertificationController',
+              }
+          }
+      })
 
-//        .state(STATES.HOME, {
+//
+//        .state(STATES.OTHERS, {
+//            url: "/others",
+//            views: {
+//                'others@': {
+//                    template: "<div ui-view=\"content\"></div>"
+//                }
+//            }
+//        })
+
+//        .state(STATES.OTHERS_CERTIFICATION, {
 //            url: "/",
 //            views: {
-//                'content@others': {
+//                'home': {
 //                    templateUrl: "templates/certificationPage.html",
 //                    controller: 'CertificationController',
 //                }
 //            }
 //        })
-//
-//        .state(STATES.COURSEINFO, {
-//            url: "/courseInfo",
-//            views: {
-//                'courseInfo@': {
-//                    template: "<div ui-view=\"content\"></div>"
-//                }
-//            }
-//        })
-//
-//        .state(STATES.COURSEINFO_CREATE, {
-//            url: "/create",
-//            views: {
-//                'content@courseInfo': {
-//                    templateUrl: "templates/courseCreate.html",
-//                    controller: 'CourseCreateController as ctrl'
-//                }
-//            }
-//        })
-//
-//        .state(STATES.COURSEINFO_MANAGE, {
-//            url: "/manage",
-//            views: {
-//                'content@courseInfo': {
-//                    templateUrl: "templates/courseManage.html",
-//                    controller: 'CourseManageController'
-//                }
-//            }
-//        })
-//
-//        .state(STATES.COURSEINFO_STUDENT, {
-//            url: "/:courseId/manage",
-//            views: {
-//                'content@courseInfo': {
-//                    templateUrl: "templates/studentManage.html",
-//                    controller: 'StudentManageController',
-//                }
-//            }
-//        })
-//
-//        .state(STATES.COURSEINFO_SENDMAIL, {
-//            url: "/:courseId/sendmail",
-//            views: {
-//                'content@courseInfo': {
-//                    templateUrl: "templates/studentSendmail.html",
-//                    controller: 'StudentSendmailController',
-//                }
-//            }
-//        })
 
-        .state(STATES.OTHERS, {
-            url: "/others",
-            views: {
-                'others@': {
-                    template: "<div ui-view=\"content\"></div>"
-                }
-            }
-        })
-
-        .state(STATES.OTHERS_CERTIFICATION, {
-            url: "/certification",
-            views: {
-                'content@others': {
-                    templateUrl: "templates/certificationPage.html",
-                    controller: 'CertificationController',
-                }
-            }
-        })
-//        .state(STATES.OTHERS_SENDMAIL, {
-//            url: "/sendMail",
-//            views: {
-//                'content@others': {
-//                    templateUrl: "templates/mailSendingPage.html",
-//                    controller: 'MailSendingController',
-//                }
-//            }
-//        })
-
-//        .state(STATES.OTHERS_INVOICE, {
-//            url: "/invoice",
-//            views: {
-//                'content@others': {
-//                    templateUrl: "templates/invoice.html",
-//                    controller: 'InvoiceController',
-//                }
-//            }
-//        })
 	}
 ])
 
