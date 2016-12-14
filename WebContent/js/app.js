@@ -32,7 +32,7 @@ var app = angular.module('app', [
         $sceProvider.enabled(false);
 
         // Start Page
-        $urlRouterProvider.otherwise("/others/sendMail");
+        $urlRouterProvider.otherwise("/");
 
         $stickyStateProvider.enableDebug(false);
 
@@ -98,14 +98,14 @@ var app = angular.module('app', [
 //            }
 //        })
 
-        .state(STATES.OTHERS, {
-            url: "/others",
-            views: {
-                'others@': {
-                    template: "<div ui-view=\"content\"></div>"
-                }
-            }
-        })
+//        .state(STATES.OTHERS, {
+//            url: "/others",
+//            views: {
+//                'others@': {
+//                    template: "<div ui-view=\"content\"></div>"
+//                }
+//            }
+//        })
 
 //        .state(STATES.OTHERS_CERTIFICATION, {
 //            url: "/certification",
@@ -116,10 +116,10 @@ var app = angular.module('app', [
 //                }
 //            }
 //        })
-        .state(STATES.OTHERS_SENDMAIL, {
-            url: "/sendMail",
+        .state('home', {
+            url: "/",
             views: {
-                'content@others': {
+                'home': {
                     templateUrl: "templates/mailSendingPage.html",
                     controller: 'MailSendingController',
                 }
