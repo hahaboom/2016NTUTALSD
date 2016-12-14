@@ -1,0 +1,267 @@
+.course-info {
+    background-color: #E9E9E9;
+    padding: 40px 0;
+    min-height: 100%;
+    height: 100%;
+    width: 100%;
+    .inner-wrapper {
+        position: relative;
+        width: 100%;
+        .create {
+            width: 100%;
+            padding: 25px 40px;
+            @include border-radius(3px);
+            background-color: #FFF;
+            @include box-shadow(0px 1px 3px 0px rgba(0, 0, 0, 0.1));
+            .title {
+                margin-bottom: 20px;
+                height: 57px;
+                font-size: 30px;
+                color: #333;
+                border-bottom: 1px solid #ccc;
+                text-align: center;
+            }
+            .input-content {
+                @include display-flex(flex);
+                padding: 10px 0;
+                .left,
+                .right {
+                    display: inline-block;
+                    @include flex(1);
+                    .form-group {
+                        line-height: 35px;
+                        margin-bottom: 15px;
+                        vertical-align: top;
+                        &.cc-address {
+                            .input-dropdown {
+                                width: calc(100% - 55px);
+                                .form-control {
+                                    @include border-radius(3px 0 0 3px);
+                                }
+                            }
+                            .btn {
+                                margin-left: -4px;
+                                @include border-radius(0 3px 3px 0);
+                            }
+                        }
+                        &.submit {
+                            text-align: right;
+                        }
+                        .multi-input {
+                            @include display-flex(flex);
+                            .input-dropdown-content {
+                                width: 150px;
+                                margin-right: 10px;
+                            }
+                            .input-group {
+                                width: calc(100% - 160px);
+                            }
+                        }
+                        label {
+                            vertical-align: top;
+                            font-size: 16px;
+                            font-weight: bold;
+                        }
+                        .input-dropdown {
+                            width: 100%;
+                            ul > li {
+                                padding: 0 10px;
+                                &.active {
+                                    background-color: #FF8F4F;
+                                    color: #FFF;
+                                }
+                            }
+                        }
+                        .add-result {
+                            padding-top: 5px;
+                            .btn {
+                                margin-right: 5px;
+                            }
+                        }
+                    }
+                }
+                .left {
+                    margin-right: 20px;
+                }
+                .right {
+                    margin-left: 20px;
+                }
+            }
+            .action-content {
+                padding-top: 20px;
+                border-top: 1px solid #ccc;
+                text-align: center;
+                .btn {
+                    width: 100px;
+                    margin-right: 20px;
+                    &.open {
+                        width: 150px;
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+        .manage {
+            .manage-topbar {
+                height: 50px;
+                line-height: 50px;
+                padding: 0 15px;
+                background-color: #FFF;
+                @include box-shadow(0px 1px 3px 0px rgba(0, 0, 0, 0.1));
+                @include border-radius(3px);
+                .class-dropdown {
+                    @include display-flex(inline-flex);
+                    position: relative;
+                    margin-left: 20px;
+                    #class-label {
+                        margin: auto;
+                        .spin-style {
+                            display: inline-block;
+                            margin-right: 10px;
+                        }
+                    }
+                    .dropdown-menu {
+                        top: calc(100% - 10px);
+                        li {
+                            cursor: pointer;
+                        }
+                    }
+                }
+                .topbar-search {
+                    @include display-flex(inline-flex);
+                    height: 50px;
+                    width: 300px;
+                    vertical-align: top;
+                    &.button {
+                        width: auto;
+                    }
+                    .input-group {
+                        margin: auto;
+                        margin-right: 20px;
+                    }
+                    .btn-group {
+                        height: 34px;
+                        margin: auto 0;
+                    }
+                }
+            }
+            .loader {
+                margin-top: 20px;
+            }
+            .manage-content {
+                margin-top: 20px;
+                background-color: #FFF;
+                @include box-shadow(0px 1px 3px 0px rgba(0, 0, 0, 0.1));
+                @include border-radius(5px);
+                &.open-level {
+                    .content-title {
+                        .glyphicon {
+                            @include transform(rotate(90deg));
+                        }
+                    }
+                    .table-content {
+                        display: block;
+                    }
+                }
+                .content-title {
+                    height: 50px;
+                    line-height: 50px;
+                    background-color: #ff8f4f;
+                    color: #FFF;
+                    font-size: 20px;
+                    text-align: center;
+                    font-weight: bold;
+                    cursor: pointer;
+                    @include border-radius(5px 5px 0 0);
+                    .glyphicon {
+                        top: 0;
+                        font-size: 12px;
+                        margin-left: 10px;
+                    }
+                }
+                .table-content {
+                    display: none;
+                    padding-top: 10px;
+                    &.new {
+                        table {
+                            tbody {
+                                tr {
+                                    td {
+                                        position: relative;
+                                        height: 50px;
+                                        line-height: 50px;
+                                        padding: 0;
+                                        font-size: 14px;
+                                        text-align: left;
+                                        &:nth-of-type(0n+1) {
+                                            padding-left: 20px;
+                                        }
+                                        &.batch {
+                                            color: #333;
+                                            cursor: default;
+                                        }
+                                        &.course {
+                                            color: #0F8CF7;
+                                            cursor: pointer;
+                                        }
+                                    }
+                                    &.selected {
+                                        background-color: #D1E1FD;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    table {
+                        thead {
+                            tr {
+                                th {
+                                    height: 40px;
+                                    line-height: 40px;
+                                    padding: 0;
+                                    text-align: left;
+                                    &:nth-of-type(0n+1) {
+                                        padding-left: 20px;
+                                    }
+                                }
+                            }
+                        }
+                        tbody {
+                            tr {
+                                td {
+                                    position: relative;
+                                    height: 50px;
+                                    line-height: 50px;
+                                    padding: 0;
+                                    font-size: 14px;
+                                    text-align: left;
+                                    &:nth-of-type(0n+1) {
+                                        padding-left: 20px;
+                                    }
+                                    &.batch {
+                                        color: #0F8CF7;
+                                        cursor: pointer;
+                                    }
+                                }
+                                &.selected {
+                                    background-color: #D1E1FD;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .empty-content {
+                display: inline-block;
+                position: absolute;
+                bottom: -60px;
+                left: 50%;
+                font-size: 30px;
+                font-weight: bold;
+                color: #333;
+                transform: translateX(-50%);
+                z-index: 1;
+            }
+        }
+    }
+}
