@@ -1,0 +1,235 @@
+<div class="studentinfo">
+    <div class="inner-wrapper">
+        <loading ng-show="isCertificationLoading">證書產生中</loading>
+        <div class="manage" ng-show="!isCertificationLoading">
+            <div class="fix-content">
+                <div class="top-nav">
+                    <a class="nav" ng-click="goCourseManage()">課程管理</a>
+                    <span class="glyphicon glyphicon-menu-right"></span>
+                    <span>{{currentCourse.courseName_}} - {{currentCourse.batch_}}</span>
+                </div>
+                <div class="manage-topbar">
+                    <div class="btn-group" role="group" aria-label="...">
+                        <button type="button" class="btn btn-default" ng-click="selectStudents()" ng-class="{'disabled': isStudentLoading}">
+                            <div class="select-block">
+                                <span class="glyphicon glyphicon-minus" ng-show="getSelectedStudent().length != studentList.length && getSelectedStudent().length != 0"></span>
+                                <span class="glyphicon glyphicon-ok" ng-show="getSelectedStudent().length == studentList.length && !isStudentLoading"></span>
+                            </div>
+                        </button>
+                        <button type="button" class="btn btn-default" ng-class="{'disabled': getSelectedStudent().length == 0}" ng-click="sendMailData()">寄送證書</button>
+                        <button type="button" class="btn btn-default" ng-class="{'disabled': getSelectedStudent().length == 0}" ng-click="openInvoiceModal()" data-toggle="modal" data-target="#invoice-modal">產生發票</button>
+                        <button type="button" class="btn btn-default" ng-class="{'disabled': getSelectedStudent().length == 0}" ng-click="deleteStudent()">刪除學員</button>
+                        <!-- <button  type="button">Test</button> -->
+                    </div>
+                    <span class="select-info">已選取 {{getSelectedStudent().length}} 名學員</span>
+                </div>
+            </div>
+            <loading ng-show="isStudentLoading"></loading>
+            <div class="manage-content" ng-show="!isStudentLoading">
+                <div class="course-content" ng-class="{'open-level': isInfoOpen}">
+                    <div class="content-title" ng-click="toggleCourseInfo()">
+                        <span>課程資訊</span>
+                        <span class="glyphicon glyphicon-menu-right"></span>
+                        <div class="btn-group" role="group" aria-label="...">
+                            <button type="button" class="btn btn-default" id="changeCertificationBackground" data-toggle="modal" data-target="#Background-Change-modal" ng-click="getBackgound()">更換證書底圖</button>
+                            <button type="button" class="btn btn-default" id="generateStudentCertificationId" data-toggle="modal" data-target="#Generate-certificationid" ng-click="generatecertificationId()">產生證書編號</button>
+                            <button type="button" class="btn btn-default" ngf-select="fileChanged($file)" ngf-accept="'.xlsx'" ng-show="!isUploading">
+                                <span>上傳學員資料</span>
+                            </button>
+                            <button type="button" class="btn btn-default disabled" ng-show="isUploading">
+                                <span>上傳中...</span>
+                                <spin spin-size="small" class="spin-style"></spin>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="content-info">
+                        <div class="left">
+                            <div class="form-group">
+                                <label>課程名稱：</label>
+                                <span>{{currentCourse.courseName_}}</span>
+                            </div>
+                            <div class="form-group">
+                                <label>梯次：</label>
+                                <span>{{currentCourse.batch_}}</span>
+                            </div>
+                            <div class="form-group">
+                                <label>類型：</label>
+                                <span>{{currentCourse.type_}}</span>
+                            </div>
+                            <div class="form-group">
+                                <label>課程時間：</label>
+                                <span>{{currentCourse.duration_}} 小時</span>
+                            </div>
+                            <div class="form-group">
+                                <label>開課日期：</label>
+                                <span class="data-group">
+                                    <span ng-repeat="date in currentCourse.dates_ track by $index">
+                                        {{date}}
+                                        <b ng-show="$index < currentCourse.dates_.length - 1">/</b>
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="form-group">
+                                <label>課程狀態：</label>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span>{{currentCourse.status_}}</span>
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a ng-click="changeCourseStatus('準備中')">準備中</a></li>
+                                        <li><a ng-click="changeCourseStatus('報名中')">報名中</a></li>
+                                        <li><a ng-click="changeCourseStatus('取消')">取消</a></li>
+                                        <li><a ng-click="changeCourseStatus('確定開課')">確定開課</a></li>
+                                        <li><a ng-click="changeCourseStatus('停止報名')">停止報名</a></li>
+                                        <li><a ng-click="changeCourseStatus('上課中')">上課中</a></li>
+                                        <li><a ng-click="changeCourseStatus('課程結束')">課程結束</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>課程總人數：</label>
+                                <span>{{studentNum}} 人</span>
+                            </div>
+                            <div class="form-group">
+                                <label>用餐統計：</label>
+                                <span>
+                                    <b>{{meatNum}}</b> 葷
+                                    <b>{{vageNum}}</b> 素
+                                </span>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="form-group">
+                                <label>課程代碼：</label>
+                                <span>{{currentCourse.courseCode_}}</span>
+                            </div>
+                            <div class="form-group">
+                                <label>地點：</label>
+                                <span>{{currentCourse.location_}}</span>
+                            </div>
+                            <div class="form-group">
+                                <label>講師：</label>
+                                <span>{{currentCourse.lecturer_}}</span>
+                            </div>
+                            <div class="form-group">
+                                <label>票種：</label>
+                                <span ng-repeat="type in currentCourse.ticketTypes_ track by $index">
+                                    {{type}}
+                                    <b ng-show="$index < currentCourse.ticketTypes_.length - 1">/</b>
+                                </span>
+                            </div>
+                            <div class="form-group">
+                                <label>票價：</label>
+                                <span class="data-group">
+                                    <span ng-repeat="price in currentCourse.prices_ track by $index">
+                                        {{price}}
+                                        <b ng-show="$index < currentCourse.prices_.length - 1">/</b>
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="form-group">
+                                <label>課程連結：</label>
+                                <span ng-show="currentCourse.hyperlink_ != ''"><a ng-click="gotoCourseUrl()">{{currentCourse.hyperlink_}}</a></span>
+                            </div>
+                            <div class="form-group">
+                                <label>副本收件人：</label>
+                                <span ng-repeat="cc in currentCourse.ccAddresses_ track by $index">
+                                    {{cc}}
+                                    <b ng-show="$index < currentCourse.ccAddresses_.length - 1">/</b>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="student-content">
+                    <div class="content-title">學員資訊</div>
+                    <table class="table table-hover">
+                        <thead>
+                            <th style="text-align: center;width:80px;">序號</th>
+                            <th>名稱</th>
+                            <th>暱稱</th>
+                            <th>電話</th>
+                            <th>電子郵件</th>
+                            <th>葷 / 素</th>
+                            <th>公司</th>
+                            <th>證書編號</th>
+                            <th>繳費狀態</th>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="s in studentList track by $index" ng-class="{'selected': s.isSelected}" ng-click="toggleSelectStudent(s, $index, $event)" ng-show="studentList.length > 0">
+                                <td style="text-align: center;">{{$index + 1}}</td>
+                                <td>{{s.name}}</td>
+                                <td>{{s.nickname}}</td>
+                                <td>{{s.phone}}</td>
+                                <td>{{s.email}}</td>
+                                <td>{{s.vege_meat}}</td>
+                                <td>{{s.company}}</td>
+                                <td>{{s.certification_id}}</td>
+                                <td>
+                                    <button id="status-label" type="button" class="btn btn-default status-toggle" data-toggle="dropdown">
+                                        <span>{{s.payment_status}}</span>
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="status-label">
+                                        <li ng-click="changeStudentStatus(s, 0)"><a>免繳費</a></li>
+                                        <li ng-click="changeStudentStatus(s, 1)"><a>未繳費</a></li>
+                                        <li ng-click="changeStudentStatus(s, 2)"><a>課後再繳費</a></li>
+                                        <li ng-click="changeStudentStatus(s, 3)"><a>已繳費</a></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="9" ng-show="studentList.length == 0" class="empty">此課程尚未有學員資料</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- <input class="btn btn-info btn-orange" type="submit" value="1" id="getStudentList" ng-show="studentNum > pageItem" ng-click="getStudentList(1)">
+                <input class="btn btn-info btn-orange" type="submit" value="2" id="getStudentList" ng-show="studentNum > pageItem" ng-click="getStudentList(2)">
+                <input class="btn btn-info btn-orange" type="submit" value="3" id="getStudentList" ng-show="studentNum > (pageItem*2)" ng-click="getStudentList(3)"> -->
+        </div>
+    </div>
+</div>
+<!-- Invoice Modal -->
+<div class="modal fade" id="invoice-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <invoice-modal></invoice-modal>
+    </div>
+</div>
+<!-- Background Change Modal -->
+<div class="modal fade" id="Background-Change-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <Background-Change-modal>
+            <input class="btn btn-info btn-orange" type="submit" value="瀏覽檔案" id="loadbackground_button" name="file" ngf-select="changeCertificationBackground($file)" accept="image/png, image/jpeg, image/jpg" ng-model="picFile" ngf-max-size="20MB">
+            <input class="btn btn-info btn-orange" type="submit" value="預覽套用結果" id="viewTempResult_button" name="viewTempResult_button" ng-click="viewTempResult()">
+            <input class="btn btn-info btn-orange" type="submit" value="上傳" id="uploadbackground_button" name="uploadbackground_button" ng-click="uploadBackground(picFile)">
+            <font color="white" style="background-color:#888888;" size="4" face="monospace">
+                &nbsp;※建議證書底圖尺寸:&nbsp;1754*1240 &nbsp;&nbsp;※支援JPG、PNG 格式的圖檔。
+                <br>
+                <div id="warningMessage" style="display: none">
+                    <span style="color: Yellow">選取圖片與建議格式大小不符，可能會不符合預期！</span>
+                </div>
+            </font>
+            <br>
+            <br>
+            <label id="statusLabel" style="color: Yellow"></label>
+            <div id="loadingBackground" style="display:">
+                <spin spin-size="small" class="spin-style"></spin>
+            </div>
+            <div id="previewBackground" style="display: none">
+                <br>
+                <img id="blah" src="#" alt="your image" height="700" width="1000" />
+            </div>
+            <div id="uploadpreviewBackground" style="display: ">
+                <br>
+                <img id="selectImagePreview" ngf-thumbnail="picFile" height="700" width="1000">
+            </div>
+            <div id="viewBackground" style="display: none">
+                <br>
+                <img id="viewImg" src="#" alt="your image" height="700" width="1000" />
+            </div>
+        </Background-Change-modal>
+    </div>
+</div>
