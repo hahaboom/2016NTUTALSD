@@ -1,4 +1,5 @@
 eclipse.preferences.version=1
 encoding//WebContent/index.html=UTF-8
+encoding//WebContent/templates/certificationPage.html=UTF-8
 encoding//src/certification/CertificationManager.java=UTF-8
 encoding/<project>=UTF-8
