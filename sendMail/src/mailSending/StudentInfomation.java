@@ -74,7 +74,7 @@ public class StudentInfomation {
 		studentsName_.add("Charlotte");
 		studentsName_.add("Doris");
 
-		mailAddresses_.add("Alice@gmail.com");
+		mailAddresses_.add("qwert30830@gmail.com");
 		mailAddresses_.add("Bob@clarence.party");
 		mailAddresses_.add("Chris@clarence.party");
 		mailAddresses_.add("David@clarence.party");
