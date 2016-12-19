@@ -9,7 +9,7 @@ app.controller("MailSendingController", ['$scope', '$state', '$timeout', '$rootS
         }
 
         function getClasses() {
-            $.get("/SLM2016/SendGmailServlet", function(responseText) {
+            $.get("/sendMail/SendGmailServlet", function(responseText) {
                 classArray = responseText.classes_;
                 for (i = 0; i < classArray.length; i++) {
                     document.myForm.courseCheckbox.options[i] = new Option(classArray[i].className_, i);
@@ -37,7 +37,7 @@ app.controller("MailSendingController", ['$scope', '$state', '$timeout', '$rootS
             var data = document.myForm.courseCheckbox.selectedIndex;
 
             $.ajax({
-                url: "/SLM2016/SendGmailServlet",
+                url: "/sendMail/SendGmailServlet",
                 type: "POST",
                 data: JSON.stringify(data),
                 async: false,
@@ -161,7 +161,7 @@ app.controller("MailSendingController", ['$scope', '$state', '$timeout', '$rootS
                 }
                 ccAddressesString = ccAddressesString.substr(0, ccAddressesString.length - 1);
                 data.ccAddresses_ = ccAddressesString;
-                $.post("/SLM2016/SendGmailServlet",
+                $.post("/sendMail/SendGmailServlet",
                     JSON.stringify(data)).done(function(data) {
                     window.alert(data);
                 });
