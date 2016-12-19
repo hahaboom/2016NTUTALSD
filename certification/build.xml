@@ -1,4 +1,4 @@
-﻿<project name="SLM2016" default="publish"> 
+﻿<project name="Certification" default="publish"> 
     <property name="src.dir" value="src"/> 
     <property name="build.dir" value="build"/>
 	<property name="libs" value="libs"/>
