@@ -27,7 +27,7 @@
     </target> 
 
      <target name="compile" depends="prepare"> 
-        <javac srcdir="${src.dir}" destdir="${class.dir}" classpathref="project.classpath" includeantruntime="false">
+        <javac encoding="UTF-8" srcdir="${src.dir}" destdir="${class.dir}" classpathref="project.classpath" includeantruntime="false">
 		
         </javac>
     </target>
