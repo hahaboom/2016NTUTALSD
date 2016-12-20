@@ -1,4 +1,5 @@
-﻿<project name="sendMail" default="publish"> 
+﻿
+<project name="sendMail" default="publish"> 
     <property name="src.dir" value="src"/> 
     <property name="build.dir" value="build"/>
 	<property name="libs" value="libs"/>
@@ -27,8 +28,7 @@
     </target> 
 
      <target name="compile" depends="prepare"> 
-        <javac srcdir="${src.dir}" destdir="${class.dir}" classpathref="project.classpath" includeantruntime="false">
-		
+        <javac encoding="UTF-8" srcdir="${src.dir}" destdir="${class.dir}" classpathref="project.classpath" includeantruntime="false"> 
         </javac>
     </target>
 
