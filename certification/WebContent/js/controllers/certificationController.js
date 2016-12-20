@@ -17,7 +17,7 @@ app.controller("CertificationController", ['$scope', '$state', '$timeout', '$roo
             data.courceName_ = courceName;
             data.courceDuration_ = courceDuration;
 
-            $.post("/SLM2016/CertificationServlet", JSON.stringify(data))
+            $.post("/Certification/CertificationServlet", JSON.stringify(data))
                 .done(function(data) {
                     document.getElementById("someImg").setAttribute('src', 'data:image/png;base64,' + data);
                 });
@@ -39,7 +39,7 @@ app.controller("CertificationController", ['$scope', '$state', '$timeout', '$roo
             var imgData = document.getElementById("someImg").getAttribute('src');
 
             if (imgData != null) {
-                $.post("/SLM2016/CertificationServlet")
+                $.post("/Certification/CertificationServlet")
                     .done(function(data) {
                         var link = document.createElement('a');
                         link.href = 'data:application/pdf;base64,' + data;
