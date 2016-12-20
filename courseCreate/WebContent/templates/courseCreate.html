@@ -1,0 +1,180 @@
+<div class="course-info">
+    <div class="inner-wrapper">
+        <div class="create">
+            <div class="title">課程檔案管理系統</div>
+            <div class="input-content">
+                <div class="left">
+                    <div class="form-group">
+                        <label for="courseName">
+                            <span>課名</span>
+                            <span style="color: Red">*</span>
+                            <span>(必填)</span>
+                        </label>
+                        <form id="courseName">
+                            <input-dropdown content-style="input-dropdown" 
+                                            input-class="form-control" 
+                                            input-placeholder="請輸入課名" 
+                                            input-name="courseName" 
+                                            input-required="false" 
+                                            selected-item="ctrl.selectedDropdownCourseNameItem" 
+                                            default-dropdown-items="ctrl.dropdownCourseNameItems" 
+                                            filter-list-method="ctrl.filterCourseNameList(userInput)" 
+                                            item-selected-method="ctrl.itemCourseNameSelected(item)">
+                            </input-dropdown>
+                        </form>
+                    </div>
+                    <div class="form-group">
+                        <label for="companyName">課程類型</label>
+                        <form id="type">
+                            <input-dropdown content-style="input-dropdown" 
+                                            input-class="form-control" 
+                                            input-placeholder="請輸入課程類型" 
+                                            input-name="type" 
+                                            input-required="false" 
+                                            selected-item="ctrl.selectedDropdownTypeItem" 
+                                            default-dropdown-items="ctrl.dropdownTypeItems" 
+                                            filter-list-method="ctrl.filterTypeList(userInput)" 
+                                            item-selected-method="ctrl.itemTypeSelected(item)">
+                            </input-dropdown>
+                        </form>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <span>梯次</span>
+                            <span style='color: Red'>*</span>
+                            <span>(必填且須與Google form相同)</span>
+                        </label>
+                        <input type="text" class="form-control" id="Batch" placeholder="請輸入公開班梯次或企業內訓單位" ng-model="data.batch">
+                    </div>
+                    <div class="form-group">
+                        <label for="companyName">開課日期(格式:YYYY/MM/DD)</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="data.dateAddresses" is-open="isDatePickerOpen" datepicker-options="dateOptions" ng-required="true" close-text="Close" readonly>
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="openDatePicker()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                <button class="btn btn-info btn-orange" type="submit" ng-click="clickAddDateButton()">新增</button>
+                            </span>
+                        </div>
+                        <div class="add-result">
+                            <button type="button" class="btn btn-default btn-sm" ng-repeat="d in showDateList track by $index" ng-click="deleteDate($index)">
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> {{d}}
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="companyName">課程時間(Hour)</label>
+                        <input type="text" class="form-control" id="Duration" placeholder="請輸入課程時間" ng-model="data.duration">
+                    </div>
+                    <div class="form-group ticket">
+                        <label>票種</label>
+                        <div class="multi-input">
+                            <div class="input-dropdown-content">
+                                <form id="ticketType">
+                                    <input-dropdown content-style="input-dropdown" 
+                                                    input-class="form-control" 
+                                                    input-placeholder="請輸入票種" 
+                                                    input-name="ticketType" 
+                                                    input-required="false" 
+                                                    selected-item="ctrl.selectedDropdownTicketTypeItem" 
+                                                    default-dropdown-items="ctrl.dropdownTicketTypeItems" 
+                                                    filter-list-method="ctrl.filterTicketTypeList(userInput)" 
+                                                    item-selected-method="ctrl.itemTicketTypeSelected(item)">
+                                    </input-dropdown>
+                                </form>
+                            </div>
+                            <div class="input-group">
+                                <input type="text" class="form-control price" id="Price" placeholder="請輸入價錢" ng-model="data.price">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-info btn-orange" type="submit" ng-click="clickAddTicketButton()">新增</button>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="add-result">
+                            <button type="button" class="btn btn-default btn-sm" ng-repeat="T in showticketList track by $index" ng-click="deleteTicket($index)">
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> {{T}}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="form-group code">
+                        <label>
+                            <span>課程代碼</span>
+                            <span style='color: Red'>*</span>
+                            <span>(必填)</span>
+                        </label>
+                        <form id="courseCode">
+                            <input type="text" class="form-control" id="Code" placeholder="請輸入課程代碼" ng-model="data.code">
+                        </form>
+                    </div>
+                    <div class="form-group cc-address">
+                        <label>副本收件者</label>
+                        <form id="ccAddress">
+                            <input-dropdown content-style="input-dropdown" 
+                                            input-class="form-control" 
+                                            input-placeholder="請輸入收件者" 
+                                            input-name="ccAddress" 
+                                            input-required="false" 
+                                            selected-item="ctrl.selectedDropdownCcAddressItem" 
+                                            default-dropdown-items="ctrl.dropdownCcAddressItems" 
+                                            filter-list-method="ctrl.filterCcAddressList(userInput)" 
+                                            item-selected-method="ctrl.itemCcAddressSelected(item)">
+                            </input-dropdown>
+                            <button class="btn btn-info btn-orange" type="submit" ng-click="clickAddCcButton()">新增</button>
+                        </form>
+                        <div class="add-result">
+                            <button type="button" class="btn btn-default btn-sm" ng-repeat="c in showCcList track by $index" ng-click="deleteCc($index)">
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> {{c}}
+                            </button>
+                        </div> 
+                    </div>
+                    <div class="form-group">
+                        <label>地點</label>
+                        <form id="location">
+                            <input-dropdown content-style="input-dropdown" 
+                                            input-class="form-control" 
+                                            input-placeholder="請輸入地點" 
+                                            input-name="location" 
+                                            input-required="false" 
+                                            selected-item="ctrl.selectedDropdownLocationItem" 
+                                            default-dropdown-items="ctrl.dropdownLocationItems" 
+                                            filter-list-method="ctrl.filterLocationList(userInput)" 
+                                            item-selected-method="ctrl.itemLocationSelected(item)">
+                            </input-dropdown>
+                        </form>
+                    </div>
+                    <div class="form-group">
+                        <label>講師</label>
+                        <input type="text" class="form-control" id="Lecturer" placeholder="請輸入講師" ng-model="data.lecturer">
+                    </div>
+                    <div class="form-group">
+                        <label>超連結</label>
+                        <input type="text" class="form-control" placeholder="請輸入超連結網址" ng-model="data.hyperlink">
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <span >狀態</span>
+                            <span style='color: Red'>*</span>
+                            <span>(必填)</span>
+                        </label>
+                        <form id="status">
+                            <input-dropdown content-style="input-dropdown" 
+                                            input-class="form-control" 
+                                            input-placeholder="請選擇課程狀態" 
+                                            input-name="status" 
+                                            input-required="true" 
+                                            selected-item="ctrl.selectedDropdownStatusItem" 
+                                            default-dropdown-items="ctrl.dropdownStatusItems">
+                            </input-dropdown>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="action-content">
+                <button class="btn btn-default" type="submit" ng-click="deleteData()">清除</button>
+                <button class="btn btn-info btn-orange open" type="submit" ng-click="clickAddCourseButton()">開課</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

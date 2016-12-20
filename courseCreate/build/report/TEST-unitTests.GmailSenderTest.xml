@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="Angel_LAB" name="unitTests.GmailSenderTest" skipped="0" tests="7" time="25.556" timestamp="2016-11-30T05:45:15">
+  <properties>
+    <property name="java.vendor" value="Oracle Corporation" />
+    <property name="libs" value="libs" />
+    <property name="sun.java.launcher" value="SUN_STANDARD" />
+    <property name="eclipse.pdebuild.templates" value="/E:/sts-bundle/sts-3.8.2.RELEASE/plugins/org.eclipse.pde.build_3.9.200.v20160204-0642/templates/" />
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+    <property name="os.name" value="Windows 10" />
+    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_101\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_101\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_101\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_101\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_101\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_101\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_101\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_101\jre\classes" />
+    <property name="ant.file.type.SLM2016" value="file" />
+    <property name="sun.desktop" value="windows" />
+    <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+    <property name="ant.home" value="E:\sts-bundle\sts-3.8.2.RELEASE\plugins\org.apache.ant_1.9.6.v201510161327" />
+    <property name="java.runtime.version" value="1.8.0_101-b13" />
+    <property name="webinf.lib.dir" value="WebContent/WEB-INF/lib" />
+    <property name="user.name" value="Angel" />
+    <property name="build.dir" value="build" />
+    <property name="user.language" value="zh" />
+    <property name="class.dir" value="build/classes" />
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_101\jre\bin" />
+    <property name="ant.project.default-target" value="publish" />
+    <property name="ant.project.name" value="SLM2016" />
+    <property name="java.version" value="1.8.0_101" />
+    <property name="user.timezone" value="" />
+    <property name="sun.arch.data.model" value="64" />
+    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_101\jre\lib\endorsed" />
+    <property name="sun.cpu.isalist" value="amd64" />
+    <property name="sun.jnu.encoding" value="MS950" />
+    <property name="file.encoding.pkg" value="sun.io" />
+    <property name="file.separator" value="\" />
+    <property name="java.specification.name" value="Java Platform API Specification" />
+    <property name="java.class.version" value="52.0" />
+    <property name="user.country" value="TW" />
+    <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_101\jre" />
+    <property name="java.vm.info" value="mixed mode" />
+    <property name="ant.file" value="E:\this\SLM2016-master\SLM2016\build.xml" />
+    <property name="os.version" value="10.0" />
+    <property name="ant.file.SLM2016" value="E:\this\SLM2016-master\SLM2016\build.xml" />
+    <property name="path.separator" value=";" />
+    <property name="java.vm.version" value="25.101-b13" />
+    <property name="report.dir" value="build/report" />
+    <property name="user.variant" value="" />
+    <property name="ant.library.dir" value="E:\sts-bundle\sts-3.8.2.RELEASE\plugins\org.apache.ant_1.9.6.v201510161327\lib" />
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob" />
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
+    <property name="user.script" value="" />
+    <property name="eclipse.pdebuild.scripts" value="/E:/sts-bundle/sts-3.8.2.RELEASE/plugins/org.eclipse.pde.build_3.9.200.v20160204-0642/scripts/" />
+    <property name="user.home" value="C:\Users\Angel" />
+    <property name="java.specification.vendor" value="Oracle Corporation" />
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_101\jre\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Java\jdk1.8.0_101\bin;C:\Program Files\Java\jdk1.7.0_60\bin;C:\Python27;C:\Python27\Scripts;C:\jython2.5.3;C:\jython2.5.3\bin;C:\Program Files\apache-ant-1.9.4\bin;C:\Program Files\SlikSvn\bin\;E:\android-sdk\platform-tools;C:\ffmpeg\bin;C:\Program Files\Git\cmd;C:\Program Files (x86)\Google\Chrome\Application;C:\Program Files\nodejs\;C:\apache-maven-3.3.9\bin;C:\Users\Angel\AppData\Local\Microsoft\WindowsApps;C:\Users\Angel\AppData\Roaming\npm;." />
+    <property name="java.vendor.url" value="http://java.oracle.com/" />
+    <property name="java.vm.vendor" value="Oracle Corporation" />
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner unitTests.GmailSenderTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.SummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,E:\this\SLM2016-master\SLM2016\build\report\TEST-unitTests.GmailSenderTest.xml crashfile=E:\this\SLM2016-master\SLM2016\junitvmwatcher1166566594904114022.properties propsfile=E:\this\SLM2016-master\SLM2016\junit9033235674617162242.properties" />
+    <property name="java.class.path" value="E:\this\SLM2016-master\SLM2016\build\classes;E:\this\SLM2016-master\SLM2016\WebContent\WEB-INF\lib\commons-fileupload-1.3.1.jar;E:\this\SLM2016-master\SLM2016\WebContent\WEB-INF\lib\curvesapi-1.03.jar;E:\this\SLM2016-master\SLM2016\WebContent\WEB-INF\lib\gson-2.3.1.jar;E:\this\SLM2016-master\SLM2016\WebContent\WEB-INF\lib\itext-asian-5.2.0.jar;E:\this\SLM2016-master\SLM2016\WebContent\WEB-INF\lib\itextpdf-5.5.9.jar;E:\this\SLM2016-master\SLM2016\WebContent\WEB-INF\lib\mail-1.4.7.jar;E:\this\SLM2016-master\SLM2016\WebContent\WEB-INF\lib\mockito-all-1.9.5.jar;E:\this\SLM2016-master\SLM2016\WebContent\WEB-INF\lib\mysql-connector-java-5.0.8-bin.jar;E:\this\SLM2016-master\SLM2016\WebContent\WEB-INF\lib\poi-3.14-20160307.jar;E:\this\SLM2016-master\SLM2016\WebContent\WEB-INF\lib\poi-examples-3.14-20160307.jar;E:\this\SLM2016-master\SLM2016\WebContent\WEB-INF\lib\poi-excelant-3.14-20160307.jar;E:\this\SLM2016-master\SLM2016\WebContent\WEB-INF\lib\poi-ooxml-3.14-20160307.jar;E:\this\SLM2016-master\SLM2016\WebContent\WEB-INF\lib\poi-ooxml-schemas-3.14-20160307.jar;E:\this\SLM2016-master\SLM2016\WebContent\WEB-INF\lib\poi-scratchpad-3.14-20160307.jar;E:\this\SLM2016-master\SLM2016\WebContent\WEB-INF\lib\smartupload-1.0.jar;E:\this\SLM2016-master\SLM2016\WebContent\WEB-INF\lib\xmlbeans-2.6.0.jar;E:\this\SLM2016-master\SLM2016\libs\annotations-api.jar;E:\this\SLM2016-master\SLM2016\libs\bootstrap.jar;E:\this\SLM2016-master\SLM2016\libs\catalina-ant.jar;E:\this\SLM2016-master\SLM2016\libs\catalina-ha.jar;E:\this\SLM2016-master\SLM2016\libs\catalina-storeconfig.jar;E:\this\SLM2016-master\SLM2016\libs\catalina-tribes.jar;E:\this\SLM2016-master\SLM2016\libs\catalina.jar;E:\this\SLM2016-master\SLM2016\libs\commons-daemon.jar;E:\this\SLM2016-master\SLM2016\libs\commons-fileupload-1.3.1.jar;E:\this\SLM2016-master\SLM2016\libs\curvesapi-1.03.jar;E:\this\SLM2016-master\SLM2016\libs\ecj-4.4.2.jar;E:\this\SLM2016-master\SLM2016\libs\el-api.jar;E:\this\SLM2016-master\SLM2016\libs\gson-2.3.1.jar;E:\this\SLM2016-master\SLM2016\libs\itext-asian-5.2.0.jar;E:\this\SLM2016-master\SLM2016\libs\itextpdf-5.5.9.jar;E:\this\SLM2016-master\SLM2016\libs\jasper-el.jar;E:\this\SLM2016-master\SLM2016\libs\jasper.jar;E:\this\SLM2016-master\SLM2016\libs\jsp-api.jar;E:\this\SLM2016-master\SLM2016\libs\junit.jar;E:\this\SLM2016-master\SLM2016\libs\mail-1.4.7.jar;E:\this\SLM2016-master\SLM2016\libs\mockito-all-1.9.5.jar;E:\this\SLM2016-master\SLM2016\libs\mysql-connector-java-5.0.8-bin.jar;E:\this\SLM2016-master\SLM2016\libs\poi-3.14-20160307.jar;E:\this\SLM2016-master\SLM2016\libs\poi-examples-3.14-20160307.jar;E:\this\SLM2016-master\SLM2016\libs\poi-excelant-3.14-20160307.jar;E:\this\SLM2016-master\SLM2016\libs\poi-ooxml-3.14-20160307.jar;E:\this\SLM2016-master\SLM2016\libs\poi-ooxml-schemas-3.14-20160307.jar;E:\this\SLM2016-master\SLM2016\libs\poi-scratchpad-3.14-20160307.jar;E:\this\SLM2016-master\SLM2016\libs\servlet-api.jar;E:\this\SLM2016-master\SLM2016\libs\smartupload-1.0.jar;E:\this\SLM2016-master\SLM2016\libs\tomcat-api.jar;E:\this\SLM2016-master\SLM2016\libs\tomcat-coyote.jar;E:\this\SLM2016-master\SLM2016\libs\tomcat-dbcp.jar;E:\this\SLM2016-master\SLM2016\libs\tomcat-jdbc.jar;E:\this\SLM2016-master\SLM2016\libs\tomcat-jni.jar;E:\this\SLM2016-master\SLM2016\libs\tomcat-juli.jar;E:\this\SLM2016-master\SLM2016\libs\tomcat-util-scan.jar;E:\this\SLM2016-master\SLM2016\libs\tomcat-util.jar;E:\this\SLM2016-master\SLM2016\libs\tomcat-websocket.jar;E:\this\SLM2016-master\SLM2016\libs\websocket-api.jar;E:\this\SLM2016-master\SLM2016\libs\xmlbeans-2.6.0.jar;E:\sts-bundle\sts-3.8.2.RELEASE\plugins\org.apache.ant_1.9.6.v201510161327\lib\ant-launcher.jar;E:\sts-bundle\sts-3.8.2.RELEASE\plugins\org.apache.ant_1.9.6.v201510161327\lib\ant.jar;E:\sts-bundle\sts-3.8.2.RELEASE\plugins\org.apache.ant_1.9.6.v201510161327\lib\ant-junit.jar;E:\sts-bundle\sts-3.8.2.RELEASE\plugins\org.apache.ant_1.9.6.v201510161327\lib\ant-junit4.jar" />
+    <property name="ant.version" value="Apache Ant(TM) version 1.9.6 compiled on June 29 2015" />
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+    <property name="java.vm.specification.version" value="1.8" />
+    <property name="sun.cpu.endian" value="little" />
+    <property name="sun.os.patch.level" value="" />
+    <property name="eclipse.pdebuild.home" value="/E:/sts-bundle/sts-3.8.2.RELEASE/plugins/org.eclipse.pde.build_3.9.200.v20160204-0642/./" />
+    <property name="java.io.tmpdir" value="C:\Users\Angel\AppData\Local\Temp\" />
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/" />
+    <property name="os.arch" value="amd64" />
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment" />
+    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_101\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext" />
+    <property name="user.dir" value="E:\this\SLM2016-master\SLM2016" />
+    <property name="war.dir" value="build/war" />
+    <property name="line.separator" value="&#xd;&#xa;" />
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
+    <property name="basedir" value="E:\this\SLM2016-master\SLM2016" />
+    <property name="ant.java.version" value="1.8" />
+    <property name="ant.core.lib" value="E:\sts-bundle\sts-3.8.2.RELEASE\plugins\org.apache.ant_1.9.6.v201510161327\lib\ant.jar" />
+    <property name="file.encoding" value="MS950" />
+    <property name="java.specification.version" value="1.8" />
+    <property name="src.dir" value="src" />
+    <property name="ant.project.invoked-targets" value="publish" />
+  </properties>
+  <testcase classname="unitTests.GmailSenderTest" name="testSendSuccessWithAttachment" time="8.039" />
+  <testcase classname="unitTests.GmailSenderTest" name="testSendSuccessWithHyperlink" time="3.427" />
+  <testcase classname="unitTests.GmailSenderTest" name="testSendNetwordFail" time="2.66" />
+  <testcase classname="unitTests.GmailSenderTest" name="testAccountLoginFail" time="1.846" />
+  <testcase classname="unitTests.GmailSenderTest" name="testSendFirewallFail" time="2.831" />
+  <testcase classname="unitTests.GmailSenderTest" name="testRecipientAddressFormatError" time="2.976" />
+  <testcase classname="unitTests.GmailSenderTest" name="testSendSuccess" time="3.673" />
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
