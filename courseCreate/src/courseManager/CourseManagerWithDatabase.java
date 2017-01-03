@@ -44,9 +44,9 @@ public class CourseManagerWithDatabase {
 	private String getCourseStatusTable() throws SQLException {
 		String result = "";
 		SqlHelper helper = new SqlHelper();
-		String sqlString = "SELECT * FROM `course_status`";
+		String sqlString = "SELECT * FROM `course_status`;";
 		CachedRowSet data = new CachedRowSetImpl();
-		result = helper.excuteSql(sqlString, data);
+		result = helper.excuteSql(sqlString, data);		
 		while (data.next()) {
 			courseStatus_.add(new Pair<String, String>(data.getString("id"), data.getString("name")));
 		}
@@ -247,7 +247,7 @@ public class CourseManagerWithDatabase {
 	private String addCourseIntoInfo(Course course, String id) throws SQLException {
 		String result = "";
 		SqlHelper helper = new SqlHelper();
-		String sqlString = "INSERT INTO `course_info` (`id`, `name`, `code`, `type`, `batch`, `duration`, `location`, `lecturer`, `fk_status_id`, `page_link`) VALUES (";
+		String sqlString = "INSERT INTO course_info (id, name, code, type, batch, duration, location, lecturer, fk_status_id, page_link, certificationPath) VALUES (";
 		sqlString += "'" + id + "', '";
 		sqlString += course.getCourseName() + "', '";
 		sqlString += course.getCourseCode() + "', '";
@@ -256,18 +256,21 @@ public class CourseManagerWithDatabase {
 		sqlString += course.getDuration() + ", '";
 		sqlString += course.getLocation() + "', '";
 		sqlString += course.getLecturer() + "', '";
+		//sqlString += course.getStatus() + "', '";
 		for (int i = 0; i < courseStatus_.size(); i++) {
 			if (courseStatus_.get(i).getValue().equals(course.getStatus())) {
 				sqlString += courseStatus_.get(i).getKey() + "', '";
 				break;
 			}
 		}
-		sqlString += course.getHyperlink() + "');";
+		sqlString += course.getHyperlink() + "',";
+		sqlString += "'');";
 		CachedRowSet data = new CachedRowSetImpl();
 		result = helper.excuteSql(sqlString, data);
 		data.close();
-		if (result != "Success")
-			return result;
+//		System.out.println(result);
+//		if (result != "Success")
+//			return result+sqlString;
 		return "Success";
 	}
 

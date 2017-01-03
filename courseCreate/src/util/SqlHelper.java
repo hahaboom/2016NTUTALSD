@@ -2,22 +2,16 @@ package util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 import javax.sql.rowset.CachedRowSet;
 
-public class SqlHelper{
+public class SqlHelper {
 	public static String SuccessString="Success";
 	public static String FailString="Fail";
-	//private final String DB_URL = "jdbc:mysql://45.32.62.194:3306/SLM2016?useUnicode=true&characterEncoding=utf-8";
-	//private final String DB_URL = "jdbc:mysql://localhost:3306/SLM2016?useUnicode=true&characterEncoding=utf-8";
-	private final String DB_URL = "jdbc:mysql://140.124.183.89:3306/slm2016?useUnicode=true&characterEncoding=utf-8";
-	//private final String DB_URL = "jdbc:sqlite:slm2016.db";
-	//private final String ACCOUNT = "SLM2016";
-	//private final String PASSWORD = "Teddysoft";
-	private final String ACCOUNT = "its";
-	private final String PASSWORD = "0000";
+	private final String DB_URL = "jdbc:sqlite:E:\\新增資料夾\\courseCreate\\slm2016.db";
 
 	public SqlHelper() {
 	}
@@ -26,17 +20,11 @@ public class SqlHelper{
 		Connection connection = null;
 		Statement statement = null;
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			//Class.forName("org.sqlite.JDBC");
-			connection = DriverManager.getConnection(DB_URL, ACCOUNT, PASSWORD);
-			//connection = DriverManager.getConnection(DB_URL);
+			Class.forName("org.sqlite.JDBC");
+			connection = DriverManager.getConnection(DB_URL);
 			statement = connection.createStatement();
-			statement.execute(sqlString);
-			if(statement.getResultSet()!=null)
-			{
-				responseData.populate(statement.getResultSet());
-			}
-			
+			ResultSet resultSet= statement.executeQuery(sqlString);
+			responseData.populate(resultSet);
 		} catch (ClassNotFoundException e) {
 			return "JDBC Driver Exception! " + e.toString();
 		} catch (SQLException e) {

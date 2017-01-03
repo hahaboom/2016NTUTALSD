@@ -13,12 +13,9 @@ public class SLMDBUtility {
 	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 	//static final String DB_URL = "jdbc:mysql://45.32.62.194:3306/SLM2016?useUnicode=true&characterEncoding=utf-8";
 	//static final String DB_URL = "jdbc:mysql://localhost:3306/SLM2016?useUnicode=true&characterEncoding=utf-8";
-	static final String DB_URL = "jdbc:mysql://140.124.183.89:3306/slm2016";
-	//private final String DB_URL = "jdbc:sqlite:slm2016.db";
+	static final String DB_URL = "jdbc:sqlite:E:\\新增資料夾\\courseCreate\\slm2016.db";
 	//static final String USER = "SLM2016";
 	//static final String PASS = "Teddysoft";
-	static final String USER = "its";
-	static final String PASS = "0000";
 	Connection connection = null;
 
 	public SLMDBUtility() {
@@ -27,10 +24,10 @@ public class SLMDBUtility {
 
 	public void createConnection() {
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			//Class.forName("org.sqlite.JDBC");
-			connection = DriverManager.getConnection(DB_URL, USER, PASS);
-			//connection = DriverManager.getConnection(DB_URL);
+			//Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("org.sqlite.JDBC");
+			//connection = DriverManager.getConnection(DB_URL, USER, PASS);
+			connection = DriverManager.getConnection(DB_URL);
 		} catch (SQLException se) {
 			se.printStackTrace();
 		} catch (ClassNotFoundException e) {
